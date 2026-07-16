@@ -1,0 +1,12 @@
+requests
+beautifulsoup4
+pandas
+spacy
+selenium
+stanza
+textdescriptives
+transformers
+numpy
+scipy
+statsmodels
+openpyxl
