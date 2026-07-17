@@ -10,13 +10,13 @@ library(glmmTMB)
 library(purrr)
 
 # Load data
-AN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_AN.xlsx") %>%
+AN <- read_excel("/Users/.../frames_AN.xlsx") %>%
   mutate(Corpus = "AN")
 
-BN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_BN.xlsx") %>%
+BN <- read_excel("/Users/.../frames_BN.xlsx") %>%
   mutate(Corpus = "BN")
 
-Control <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_Control.xlsx") %>%
+Control <- read_excel("/Users/.../frames_Control.xlsx") %>%
   mutate(Corpus = "Control")
 
 # Combine datasets
@@ -110,10 +110,6 @@ valid_frames
 #Run model
 #####################################
 
-
-# ----------------------------
-# Funzione per un singolo frame
-# ----------------------------
 run_frame_model <- function(frame_name, data) {
   
   frame_data <- data %>%
@@ -167,7 +163,7 @@ run_frame_model <- function(frame_name, data) {
 }
 
 # ----------------------------
-# Esegui su tutti i frame validi
+# run on all valid frames
 # ----------------------------
 results_frames <- map_dfr(
   valid_frames,
@@ -176,7 +172,7 @@ results_frames <- map_dfr(
 )
 
 # ----------------------------
-# Correzione per multiple testing
+# multiple-test correction
 # ----------------------------
 results_frames <- results_frames %>%
   mutate(
