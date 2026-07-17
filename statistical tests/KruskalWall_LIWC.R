@@ -14,9 +14,9 @@ library(FSA)
 
 
 #import files
-bn <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LIWC/LIWC-BN.xlsx")
-an <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LIWC/LIWC-AN.xlsx")
-control <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LIWC/LIWC-controllo.xlsx")
+bn <- read_excel("/Users/.../LIWC-BN.xlsx")
+an <- read_excel("/Users/.../LIWC-AN.xlsx")
+control <- read_excel("/Users/.../LIWC-controllo.xlsx")
 
 
 #rename variables in all datasets
