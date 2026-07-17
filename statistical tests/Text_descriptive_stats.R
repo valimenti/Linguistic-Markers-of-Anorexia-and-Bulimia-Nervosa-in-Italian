@@ -23,14 +23,10 @@ library(flextable)
 library(officer)
 
 #import files
-AN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/corpus anoressia/ana_textdescriptives.xlsx")
-BN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/corpus bulimia/TextD_BN_reduced.xlsx")
-Control <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/corpus controllo/controllo_textdescriptives.xlsx")
+AN <- read_excel("/Users/.../AN_textdescriptives.xlsx")
+BN <- read_excel("/Users/.../BN_textdescriptives.xlsx")
+Control <- read_excel("/Users/.../control_textdescriptives.xlsx")
 
-#check structure if you want
-str(AN)
-str(BN)
-str(Control)
 
 #add grouping variables as we need a unique long dataset
 AN$corpus <- "AN"
@@ -82,7 +78,7 @@ ggplot(data, aes(sample = token_length_mean)) +
 analysis_data$corpus <- factor(analysis_data$corpus)
 
 
----------------------------------------------------------------------------------------------------
+
 # Kruskal-Wallis tests
 kruskal_results <- analysis_data %>%
 pivot_longer(cols = -corpus,
@@ -134,7 +130,7 @@ View(dunn_results)
 
 ############################# Summary Table with test results and median and IQR #######################################
 
-#recompute everything (dont ask why)
+#recompute everything
 library(rstatix)
 
 # Convert to long format
