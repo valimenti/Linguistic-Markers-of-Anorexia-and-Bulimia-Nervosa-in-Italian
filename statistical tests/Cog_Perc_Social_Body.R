@@ -12,12 +12,11 @@ library(FSA)
 
 
 #import files
-BN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LIWC/LIWC-BN.xlsx")
-AN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LIWC/LIWC-AN.xlsx")
-Control <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LIWC/LIWC-controllo.xlsx")
+BN <- read_excel("/Users/.../LIWC-BN.xlsx")
+AN <- read_excel("/Users/.../LIWC-AN.xlsx")
+Control <- read_excel("/Users/.../LIWC-controllo.xlsx")
 
 
---------------------------------------------------------------------------------------------
   ################################# Personal References #####################################
 
 #bind datasets and add corpus as a factor (persons)
@@ -101,7 +100,7 @@ dunn_results
 
 ############################## APA tables #######################################
 
-# Convert to long format (solo variabili normalizzate)
+# Convert to long format 
 long_data <- data %>%
   pivot_longer(
     cols = c(Mec_Cog,
