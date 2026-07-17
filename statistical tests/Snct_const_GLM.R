@@ -4,13 +4,13 @@ library(readxl)
 library(tidyr)
 library(dplyr)
 
-AN_data <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_AN.xlsx")
-BN_data <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_BN.xlsx")
-Control_data <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_Control.xlsx")
+AN_data <- read_excel("/Users/.../frames_AN.xlsx")
+BN_data <- read_excel("/Users/.../frames_BN.xlsx")
+Control_data <- read_excel("/Users/.../frames_Control.xlsx")
 
 
 
-#estrai e somma counts for each construction type
+#extract and sum counts for each construction type
 # Somma le occorrenze per ciascun tipo di costruzione
 AN_counts <- colSums(AN_data[, c("Costruzioni_passive", "Passive_con_agente", "Costruzioni_attive", "Costruzioni_nanticausative", "Impersonali_e_nominali")])
 BN_counts <- colSums(BN_data[, c("Costruzioni_passive", "Passive_con_agente", "Costruzioni_attive", "Costruzioni_nanticausative", "Impersonali_e_nominali")])
@@ -29,11 +29,11 @@ print(chi_test)
 expected_frequencies <- chi_test$expected
 print(expected_frequencies)
 
-# Verifica che tutte le frequenze attese siano >= 5
+# check expected frequency >= 5
 all(expected_frequencies >= 5)
 
 
-#confronto corpus per corpus
+#compare pairwise
 AN_BN <- rbind(AN_counts, BN_counts)
 chisq.test(AN_BN)
 
@@ -91,9 +91,9 @@ chisq.test(data_matrix)
 library(effectsize)
 cramers_v(data_matrix)
 
-###################################################################################
-#Analisi a livello di testo e non f´di corpus con un modello a regressione multipla (?) poisson o negative n´binomial
-######################################################################################
+#######################################
+#text-level analysis with glmm, poisson
+######################################
 library(glmmTMB)
 
 #unique identifier for each text
@@ -126,8 +126,6 @@ long_data <- all_data %>%
     names_to = "Construction",
     values_to = "Count"
   )
-
-
 
 
 model <- glmmTMB(
@@ -207,7 +205,7 @@ pairs(emm1, adjust = "holm")
 
 
 
-############################
+#########################################
 #Visualizationn estimated marginal means
 ##########################################
 
