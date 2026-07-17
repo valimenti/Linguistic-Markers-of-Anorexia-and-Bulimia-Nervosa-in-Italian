@@ -11,9 +11,9 @@ library(broom)
 ############################################################
 
 #load data
-BN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LOME data/BN/aggregated_lome_spacy_BN.xlsx")
-AN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LOME data/AN/aggregated_lome_spacy_anoressia.xlsx")
-Control <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/LOME data/CN/aggregated_lome_spacy_cn.xlsx")
+BN <- read_excel("/Users/.../aggregated_lome_spacy_BN.xlsx")
+AN <- read_excel("/Users/.../aggregated_lome_spacy_AN.xlsx")
+Control <- read_excel("/Users/.../aggregated_lome_spacy_control.xlsx")
 
 
 
@@ -64,22 +64,19 @@ chi_result_sim
 
 
 
-
-
-
 ####################################################################################################################
 # 1. LOAD DATA
 ############################################################
 
-AN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_AN.xlsx") %>%
+AN <- read_excel("/Users/.../frames_AN.xlsx") %>%
   mutate(Corpus = "AN",
          File = paste0("AN_", File))
 
-BN <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_BN.xlsx") %>%
+BN <- read_excel("/Users/.../frames_BN.xlsx") %>%
   mutate(Corpus = "BN",
          File = paste0("BN_", File))
 
-Control <- read_excel("/Users/valimenti/Documents/TESI- ALIMENTI VALENTINA/paper-ready/frames_Control.xlsx") %>%
+Control <- read_excel("/Users/.../frames_Control.xlsx") %>%
   mutate(Corpus = "Control",
          File = paste0("Control_", File))
 
@@ -135,7 +132,7 @@ analysis_data <- complete_data %>%
   filter(Frame %in% valid_frames)
 
 ############################################################
-# 5. OPTIONAL: stability check (highly recommended)
+# 5. stability check
 ############################################################
 
 frame_stats <- analysis_data %>%
